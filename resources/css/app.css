@@ -1,3 +1,4 @@
-@tailwind css;
+/* ./resources/css/app.css */
+@tailwind base;
 @tailwind components;
-@tailwind utilitie;
+@tailwind utilities;
