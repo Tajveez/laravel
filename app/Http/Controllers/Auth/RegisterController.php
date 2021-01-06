@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    public function index()
+    public function Index()
     {
         return view('auth.register');
+    }
+
+    public function Save(Request $request)
+    {
+        dd($request);
     }
 }

@@ -3,6 +3,7 @@
     <div class="flex justify-center">
         <div class="w-4/12 bg-gray-100 p-6 rounded-lg">
             <form method="post" action="{{ route('register') }}">
+                @csrf
                 <div class="mb-4">
                     <label for="name" class="sr-only">Name</label>
                     <input type="text" id="name" placeholder="Name" class="bg-gray-100 border-2 w-full p-4 rounded-lg">
