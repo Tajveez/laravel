@@ -13,6 +13,10 @@ Route::post('/login', [LoginController::class, 'Store']);
 Route::get('/register', [RegisterController::class, 'Index'])->name('register');
 Route::post('/register', [RegisterController::class, 'Store']);
 
+Route::get('/home', function () {
+    return redirect()->route('home');
+});
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
