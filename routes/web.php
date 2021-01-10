@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
 Route::get('/login', [LoginController::class, 'Index'])->name('login');
+Route::post('/login', [LoginController::class, 'Store']);
 Route::get('/register', [RegisterController::class, 'Index'])->name('register');
 Route::post('/register', [RegisterController::class, 'Store']);
 

@@ -9,9 +9,20 @@ class LoginController extends Controller
 {
     public function Index()
     {
+        return view('auth.login');
     }
 
-    public function Store()
+    public function Store(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (!auth()->attempt($request->only('email', 'password'))) {
+            return back()->with('status', 'Invalid login detail');
+        }
+
+        return redirect()->route('dashboard');
     }
 }
