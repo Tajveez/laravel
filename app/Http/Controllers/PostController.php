@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -9,7 +10,11 @@ class PostController extends Controller
     //
     public function Index()
     {
-        return view('posts.index');
+        $posts = Post::get();
+
+        return view('posts.index', [
+            'posts' => $posts
+        ]);
     }
 
     public function Store(Request $request)
