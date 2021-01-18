@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
@@ -18,6 +19,8 @@ Route::post('/register', [RegisterController::class, 'Store']);
 
 Route::get('/posts', [PostController::class, 'Index'])->name('posts');
 Route::post('/posts', [PostController::class, 'Store']);
+
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'Store'])->name('posts.likes');
 
 Route::get('/home', function () {
     return redirect()->route('home');
