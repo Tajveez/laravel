@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostLikeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function Store(Post $post, Request $request)
     {
         $post->likes()->create([
@@ -14,5 +19,10 @@ class PostLikeController extends Controller
         ]);
 
         return back();
+    }
+
+    public function destroy(Post $post, Request $request)
+    {
+        dd($post);
     }
 }

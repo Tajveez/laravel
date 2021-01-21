@@ -21,6 +21,7 @@ Route::get('/posts', [PostController::class, 'Index'])->name('posts');
 Route::post('/posts', [PostController::class, 'Store']);
 
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'Store'])->name('posts.likes');
+Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 
 Route::get('/home', function () {
     return redirect()->route('home');
