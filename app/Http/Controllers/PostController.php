@@ -10,7 +10,8 @@ class PostController extends Controller
     //
     public function Index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::with(['users', 'likes']) //EagerLoading
+            ->paginate(5);
 
         return view('posts.index', [
             'posts' => $posts
