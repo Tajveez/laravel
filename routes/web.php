@@ -6,9 +6,11 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'Index'])->name('user.posts');
 Route::post('/logout', [LogoutController::class, 'Logout'])->name('logout');
 
 Route::get('/login', [LoginController::class, 'Index'])->name('login');
