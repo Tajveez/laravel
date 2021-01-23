@@ -33,6 +33,7 @@ class PostController extends Controller
 
     public function Destroy(Post $post)
     {
+        $this->authorize('delete', $post);
         $post->delete();
 
         return back();
